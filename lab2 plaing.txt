@@ -1,0 +1,12 @@
+read file  5 loc 5 min
+pars string 15 loc 20 min
+
+if(e/c) 20loc  10 min
+store in customer(nmae, balance,id)/employe obj(nmae, id)
+elif(t)
+if w
+cust.balance--
+if d
+cust.balance++
+
+end
