@@ -5,26 +5,35 @@
 using namespace std;
 
 class Customer{
+    char type;
+    int id;
     string name;
     double balance;
+    public:void disp(){
+        cout<<" name: "<<name<<"balance"<<balance;
+    }
 };
 
 class Employee{
+    char type;
+    int id;
     string name;
+    public:void disp(){
+        cout<<" name: "<<name<<"id"<<id;
+    }
 };
-string Read(string path){
-    fstream newfile;
-   
-   newfile.open(path,ios::in ); 
-   if (newfile.is_open()){   //checking whether the file is open
-      string str;
-      while(getline(newfile, str)){ 
-         cout << str << "\n"; 
-      }
-      newfile.close();  
-   }
-   
-}
+ Read(string path){
+   ifstream fin;
+   Employee e;
+   Customer c;
+   fin.open(path,ios::in,ios::binary);
+    if(!fin)
+        cout<<"file not found"<<endl;
+    else{
+        fin.read(&c,sizeof(c));
+    }
+    c.disp();
+ }
 int main(){
    string file= Read("data.txt");
 
