@@ -10,25 +10,37 @@ class Customer:
 with open("data.txt",'r') as file:
   data=file.readlines()
 
+cust={}
+emp={}
 
 for dat in data:
+    dat=dat.rstrip()
     x = dat.split(" ")
-    custArray=[]
-    size_custArray=0
-    empArray=[]
-    size_empArray=0
 
     if (dat.startswith('c')):
-        custArray.append(Customer())
-        custArray[size_custArray].id=x[1]
-        custArray[size_custArray].name=x[2]
-        custArray[size_custArray].balance=x[3]
-        size_custArray+=1
-        
+        c=Customer()
+        c.id=x[1]
+        c.name=x[2]
+        c.balance=x[3]
+        cust[x[1]]=c
+
     elif (dat.startswith('e')):
-        empArray.append(Employee())
-        empArray[size_empArray].id=x[1]
-        empArray[size_empArray].name=x[2]
-        size_empArray+=1
-print(empArray[0])
+        e=Employee()
+        e.id=x[1]
+        e.name=x[2]
+        emp[x[1]]=e
+
+
+    elif (dat.startswith('t')):
+        p_balance=cust[x[1]].balance
+        if x[3]=='w':
+            cust[x[1]].balance= float(cust[x[1]].balance)-float(x[4])
+            print(cust[x[1]].name,emp[x[2]].name ,cust[x[1]].balance, p_balance)
+        elif x[3]=='d':
+            cust[x[1]].balance= float(cust[x[1]].balance)+float(x[4])
+            print(cust[x[1]].name,emp[x[2]].name ,cust[x[1]].balance, p_balance)
+
+
+
+#print(emp['5'].name)
 
