@@ -32,15 +32,11 @@ for dat in data:
 
 
     elif (dat.startswith('t')):
-        p_balance=cust[x[1]].balance
         if x[3]=='w':
             cust[x[1]].balance= float(cust[x[1]].balance)-float(x[4])
-            print(cust[x[1]].name,emp[x[2]].name ,cust[x[1]].balance, p_balance)
+            print(cust[x[1]].name,emp[x[2]].name,'-$',x[4] ,'$',round(cust[x[1]].balance,2))
         elif x[3]=='d':
             cust[x[1]].balance= float(cust[x[1]].balance)+float(x[4])
-            print(cust[x[1]].name,emp[x[2]].name ,cust[x[1]].balance, p_balance)
+            print(cust[x[1]].name,emp[x[2]].name ,'+$',x[4],'$',round(cust[x[1]].balance,2))
 
-
-
-#print(emp['5'].name)
 
